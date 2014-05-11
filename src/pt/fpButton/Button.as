@@ -31,7 +31,7 @@ package pt.fpButton
 			buttonText.y = (buttonSM.height * scale) / 2;
 			addGraphic(buttonText);
 			buttonSM.play("unpressed");
-			setHitbox(buttonWidth*buttonSM.scale, buttonHeight*buttonSM.scale);
+			setHitbox(32*buttonSM.scale, 32*buttonSM.scale);
 			beenPressed = false;
 			onReleased = handler;
 		}
