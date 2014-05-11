@@ -15,9 +15,9 @@ package pt.fpButton
 		private var buttonSM:Spritemap;
 		private var beenPressed:Boolean;
 		private var onReleased:Function;
-		public function Button(buttonWidth:Number, buttonHeight:Number, x:Number = 0, y:Number = 0, handler:Function = null, scale:Number = 1, text:String = "") 
+		public function Button(x:Number = 0, y:Number = 0, handler:Function = null, scale:Number = 1, text:String = "") 
 		{
-			buttonSM = new Spritemap(buttonImg, buttonWidth, buttonHeight);
+			buttonSM = new Spritemap(buttonImg, 32, 32);
 			buttonSM.add("unpressed", [0]);
 			buttonSM.add("pressed", [1]);
 			buttonSM.scale = scale;
