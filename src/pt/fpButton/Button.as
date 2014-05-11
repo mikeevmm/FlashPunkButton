@@ -11,7 +11,7 @@ package pt.fpButton
 	 */
 	public class Button extends Entity
 	{
-		[Embed(source = "ClientPNG.png")]private const buttonImg:Class;
+		[Embed(source="buttonPlaceholder.png")]private const buttonImg:Class;
 		private var buttonSM:Spritemap;
 		private var beenPressed:Boolean;
 		private var onReleased:Function;
