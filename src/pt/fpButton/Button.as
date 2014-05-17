@@ -15,8 +15,11 @@ package pt.fpButton
 		private var buttonSM:Spritemap;
 		private var beenPressed:Boolean;
 		private var onReleased:Function;
-		public function Button(x:Number = 0, y:Number = 0, handler:Function = null, scale:Number = 1, text:String = "") 
+		
+		public var buttonLocked:Boolean;
+		public function Button(x:Number = 0, y:Number = 0, handler:Function = null, scale:Number = 1, text:String = "", locked:Boolean = false) 
 		{
+			buttonLocked = locked;
 			buttonSM = new Spritemap(buttonImg, 32, 32);
 			buttonSM.add("unpressed", [0]);
 			buttonSM.add("pressed", [1]);
@@ -36,7 +39,10 @@ package pt.fpButton
 			onReleased = handler;
 		}
 		override public function update():void {
-			if (this.collidePoint(this.x, this.y, Input.mouseX, Input.mouseY) && Input.mousePressed) {
+			if (buttonLocked) {
+				buttonSM.color = 0x999999;
+			}
+			if (this.collidePoint(this.x, this.y, Input.mouseX, Input.mouseY) && Input.mousePressed && !buttonLocked) {
 				buttonSM.play("pressed");
 				beenPressed = true;
 			}else if (this.collidePoint(this.x, this.y, Input.mouseX, Input.mouseY) && Input.mouseReleased && beenPressed) {
