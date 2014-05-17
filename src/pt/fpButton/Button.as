@@ -46,6 +46,7 @@ package pt.fpButton
 			}else if (!this.collidePoint(this.x, this.y, Input.mouseX, Input.mouseY)) {
 				buttonSM.play("unpressed");
 			}
+			super.update();
 		}
 	}
 
